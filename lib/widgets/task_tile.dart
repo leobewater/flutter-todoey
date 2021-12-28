@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-// StateWidget - changeable
-// StatelessWidget - non-changeable
+// StateWidget - state object it’s coupled with, is mutable and allows the rebuild of the widget whenever the state changes.
+// StatelessWidget - all of the widget’s properties are immutable.
 
 // convert StatelessWidget to StatefulWidget
 class TaskTile extends StatefulWidget {
