@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:todoey/screens/tasks_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: TasksScreen(),
+    );
   }
 }
