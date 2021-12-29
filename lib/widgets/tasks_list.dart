@@ -4,34 +4,30 @@ import 'package:todoey/models/task.dart';
 
 // convert this to a stateful widget so we can update the tasks
 class TasksList extends StatefulWidget {
+  TasksList(this.tasks);
+  final List<Task> tasks; // accept tasks
+
   @override
   State<TasksList> createState() => _TasksListState();
 }
 
 class _TasksListState extends State<TasksList> {
-  // set up list to hold all tasks
-  List<Task> tasks = [
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy eggs'),
-    Task(name: 'Buy bread'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
         return TaskTile(
-          isChecked: tasks[index].isDone,
-          taskTitle: tasks[index].name,
+          isChecked: widget.tasks[index].isDone,
+          taskTitle: widget.tasks[index].name,
           checkboxCallback: (newValue) {
             setState(() {
               // add "!" exclamation mark after newValue to check for null safety
-              tasks[index].isDone = newValue!;
+              widget.tasks[index].isDone = newValue!;
             });
           },
         );
       },
-      itemCount: tasks.length,
+      itemCount: widget.tasks.length,
     );
   }
 }
