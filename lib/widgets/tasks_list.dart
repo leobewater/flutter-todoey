@@ -23,6 +23,12 @@ class _TasksListState extends State<TasksList> {
         return TaskTile(
           isChecked: tasks[index].isDone,
           taskTitle: tasks[index].name,
+          checkboxCallback: (newValue) {
+            setState(() {
+              // add "!" exclamation mark after newValue to check for null safety
+              tasks[index].isDone = newValue!;
+            });
+          },
         );
       },
       itemCount: tasks.length,

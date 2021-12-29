@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 // StatelessWidget - all of the widget’s properties are immutable.
 
 class TaskTile extends StatelessWidget {
-  TaskTile({required this.isChecked, required this.taskTitle});
+  TaskTile({
+    required this.isChecked,
+    required this.taskTitle,
+    required this.checkboxCallback,
+  });
 
   final bool isChecked;
   final String taskTitle;
+  final Function(bool?) checkboxCallback;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +28,8 @@ class TaskTile extends StatelessWidget {
       trailing: Checkbox(
         activeColor: Colors.lightBlueAccent,
         value: isChecked,
-        onChanged: (newvalue) {},
+        onChanged: checkboxCallback,
       ),
     );
   }
 }
-
-//
-// (bool? newValue) {
-//           setState(() {
-//             // add "!" exclamation mark after newValue to check for null safety
-//             isChecked = newValue!;
-//           });
-//         },
