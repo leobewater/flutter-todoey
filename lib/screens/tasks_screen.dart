@@ -36,6 +36,9 @@ class _TasksScreenState extends State<TasksScreen> {
                   setState(() {
                     tasks.add(Task(name: newTaskTitle));
                   });
+
+                  // make add_task_modal to pop off
+                  Navigator.pop(context);
                 }),
               ),
             ),
@@ -74,7 +77,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '12 tasks',
+                  '${tasks.length} tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
